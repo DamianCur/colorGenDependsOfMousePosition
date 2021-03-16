@@ -1,32 +1,37 @@
-// KOLOR GENEROWANY W ZALEŻNOŚCI OD TEGO GDZIE KLIKNIEMY
+const cords = document.querySelector("p");
 
-// jeśli wartość dla x (event.clientX) i y (event.clientY) jest parzysta (np. 100,122)  to kolor czerwony
-// jesli wartość dla x i y jest nieparzysta to kolor niebieski
-// jeśli jeden z kolorów jest parzysty a drugi nieparzysty to kolor zielony
+function init() {
 
-const cursorMove = function (e) {
-  const x = e.clientX;
-  const y = e.clientY;
-  
+  cords.style.position = "absolute";
+  cords.style.top = "20px";
+  cords.style.left = "20px";
+  cords.style.fontSize = "20px";
+  cords.style.fontWeight = "bold";
+  cords.textContent = `X: 0 Y: 0`
+  document.body.style.backgroundColor = "#ddd";
+
 }
 
-document.body.addEventListener("mousemove", cursorMove, );
+init();
+
+
+
+
 
 document.body.addEventListener("click", (e) => {
-
   const x = e.clientX;
   const y = e.clientY;
   console.log(x, y);
+  cords.textContent = `X: ${x} Y: ${y}`;
 
   if (x % 2 === 0 && y % 2 === 0) {
-    document.body.style.backgroundColor = "red";
-
+    document.body.style.backgroundColor = "teal";
   } else if (x % 2 !== 0 && y % 2 !== 0) {
-    document.body.style.backgroundColor = "blue";
-
+    document.body.style.backgroundColor = "cadetblue";
   } else {
-    {
-      document.body.style.backgroundColor = "green";
-    }
+    document.body.style.backgroundColor = "brown";
   }
-});
+
+
+
+})
